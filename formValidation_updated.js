@@ -64,6 +64,15 @@ function reviewFormData() {
 
     const formElements = document.querySelectorAll("#profileForm input, #profileForm select, #profileForm textarea");
     let reviewHTML = '<h3>Review Your Information:</h3><ul>';
+    const illnessCheckboxes = document.querySelectorAll('input[name="illness"]:checked');
+    if (illnessCheckboxes.length > 0) {
+        reviewHTML += '<li><strong>Medical History:</strong> ';
+        illnessCheckboxes.forEach((box, idx) => {
+            reviewHTML += box.value + (idx < illnessCheckboxes.length - 1 ? ', ' : '');
+        });
+        reviewHTML += '</li>';
+    }
+    
     formElements.forEach(el => {
         if ((el.type !== "radio" && el.type !== "checkbox") || el.checked) {
             const label = el.name || el.id;

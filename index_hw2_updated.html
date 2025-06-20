@@ -66,15 +66,15 @@
                <tr><th colspan="6">Set up a new profile</th></tr>
                <tr>
                    <td>First Name:</td>
-                   <td><input type="text" id="firstname"></td>
+                   <td><input type="text" id="firstname" pattern="[A-Za-z\'\-]{1,30}" title="Enter 1–30 letters, apostrophes or dashes only"></td>
                    <td>Middle Initial:</td>
-                   <td><input type="text" id="midinitial" size="1" maxlength="1"></td>
+                   <td><input type="text" id="midinitial" size="1" maxlength="1" pattern="[A-Za-z]{1}" title="Enter 1 letter only"></td>
                    <td>Last Name:</td>
-                   <td><input type="text" id="lastname"></td>
+                   <td><input type="text" id="lastname" pattern="[A-Za-z0-9\'\-]{1,30}" title="Enter 1–30 letters, numbers 2–5, apostrophes or dashes"></td>
                </tr>
                <tr>
                    <td>Date of Birth (MM/DD/YYYY):</td>
-                   <td><input type="text" id="dob"></td>
+                   <td><input type="date" id="dob" min="1905-07-20" max="2025-06-20" title="Enter DOB between 1905-07-20 and 2025-06-20"></td>
                </tr>
                <tr>
                    <td>Social Security Number:</td>
@@ -118,7 +118,13 @@
                    <td>Zip Code:</td>
                    <td><input type="text" id="zip" placeholder="12345"></td>
                </tr>
-               <tr>
+               
+<tr>
+    <td>Phone Number:</td>
+    <td><input type="tel" id="phone" pattern="\d{3}-\d{3}-\d{4}" title="Format: 123-456-7890" required></td>
+</tr>
+
+<tr>
                    <td>Email Address:</td>
                    <td><input type="email" id="email"></td>
                </tr>
@@ -126,7 +132,19 @@
                    <td>Describe Your Current Symptoms:</td>
                    <td colspan="5"><textarea id="symptoms" rows="3"></textarea></td>
                </tr>
-               <tr>
+               
+<tr>
+    <td>Medical History:</td>
+    <td colspan="5">
+        <input type="checkbox" name="illness" value="Chickenpox"> Chickenpox
+        <input type="checkbox" name="illness" value="Measles"> Measles
+        <input type="checkbox" name="illness" value="Mumps"> Mumps
+        <input type="checkbox" name="illness" value="Covid-19"> Covid-19
+        <input type="checkbox" name="illness" value="Heart Disease"> Heart Disease
+    </td>
+</tr>
+
+<tr>
                    <td>Gender:</td>
                    <td><input type="radio" name="gender" value="Male"> Male <input type="radio" name="gender" value="Female"> Female</td>
                </tr>
@@ -155,7 +173,7 @@
                </tr>
                <tr>
                    <td>Preferred User ID:</td>
-                   <td><input type="text" id="userid"></td>
+                   <td><input type="text" id="userid" pattern="^[A-Za-z][A-Za-z0-9_-]{4,29}$" title="5–30 characters. Letters/numbers, no spaces. Must start with a letter."></td>
                    <td>Password:</td>
                    <td><input type="password" id="password"></td>
                    <td>Re-enter Password:</td>
